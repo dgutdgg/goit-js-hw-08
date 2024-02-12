@@ -26,10 +26,21 @@ form.addEventListener('input', () => {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
+
+  // if (!textInput.value.trim() || !textArea.value.trim()) {
+  //   alert('Proszę wypełnić wszystkie pola formularza.');
+  //   return;
+  // }
+
+  if (textInput.value === '' || textArea.value === '') {
+    alert('Proszę wypełnić wszystkie pola formularza.');
+    return;
+  }
+
   localStorage.removeItem('feedback-form-state');
   textInput.value = '';
   textArea.value = '';
-  console.log('Logout the object with email, message:', formState);
+  console.log('Formularz został wysłany.', formState);
 });
 
 // textInput.addEventListener('input', event => {
